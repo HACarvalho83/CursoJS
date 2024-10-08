@@ -19,6 +19,10 @@ section {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
 }
 
+div#iNum{
+    padding: 20px 0 20px 0;
+}
+
 footer {
     color: white;
     text-align: center;
