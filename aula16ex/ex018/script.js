@@ -11,10 +11,15 @@ function compararNumeros(a, b) {
 }
 
 function soma(lista1) {
-
+    let soma = 0
+    for(let pos in lista1) {
+        soma += lista1[pos]
+    }
+    return soma
 }
 
 let lista = []
+let analise = document.querySelector('div#iAnalise')
 
 function adicionar() { 
     let num = document.getElementById('inum')
@@ -30,6 +35,8 @@ function adicionar() {
         //item.value =`tab${n}`
         tab.appendChild(item)
         num.value = ''
+        analise.innerHTML = ''
+        num.focus()
     }
 }
 
@@ -39,14 +46,15 @@ function finalizar() {
     } else {
         lista.sort(compararNumeros)
 
-        let analise = document.querySelector('div#iAnalise')
         
         analise.innerHTML = `<p>Ao todo, temos ${lista.length} números cadastrados.</p>`
 
         analise.innerHTML += `<p>O maior valor informado foi ${lista[lista.length-1]}.</p>`
 
-        analise.innerHTML += `<p>O menor valor informado foi ${lista[0]}</p>`
+        analise.innerHTML += `<p>O menor valor informado foi ${lista[0]}.</p>`
 
-        analise.innerHTML += `${lista}`
+        analise.innerHTML += `<p>Somando todos os valores, temos ${soma(lista)}.</p>`
+
+        analise.innerHTML += `<p>A média dos valores digitados é ${soma(lista) / lista.length}.</p>`
     }
 }
